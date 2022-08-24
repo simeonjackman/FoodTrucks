@@ -23,9 +23,11 @@ $ ./setup-docker.sh
 $ docker-compose up
 ```
 
-The app can also be easily deployed on AWS Elastic Container Service. Once you have [aws ecs cli](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI_installation.html) installed, you can run the following to deploy it on ECS!
+Push the image to SDN's ECR
 ```
-$ ./setup-aws-ecs.sh
+$ aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/j1m4u0k0
+$ docker build -t sre-training .
+$ docker tag sre-training:latest public.ecr.aws/j1m4u0k0/sre-training:latest
+$ docker push public.ecr.aws/j1m4u0k0/sre-training:latest
+$ docker push aws_account_id.dkr.ecr.region.amazonaws.com/my-repository:tag
 ```
-
-Learn more at [docker-curriculum](http://prakhar.me/docker-curriculum).
