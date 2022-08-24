@@ -29,5 +29,4 @@ $ aws ecr-public get-login-password --region us-east-1 | docker login --username
 $ docker build -t sre-training .
 $ docker tag sre-training:latest public.ecr.aws/j1m4u0k0/sre-training:latest
 $ docker push public.ecr.aws/j1m4u0k0/sre-training:latest
-$ docker push aws_account_id.dkr.ecr.region.amazonaws.com/my-repository:tag
 ```
