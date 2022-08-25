@@ -30,3 +30,7 @@ $ docker build -t sre-training .
 $ docker tag sre-training:latest public.ecr.aws/j1m4u0k0/sre-training:latest
 $ docker push public.ecr.aws/j1m4u0k0/sre-training:latest
 ```
+
+If you are on Apple silicon (ARM arch) run
+``$ docker buildx build --platform linux/amd64 -t sre-training --load .`
+to build instead.
