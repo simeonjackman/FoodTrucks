@@ -27,7 +27,7 @@ def safe_check_index(index, retry=10):
         print("Out of retries. Bailing out...")
         sys.exit(1)
     try:
-        status = es.indices.exists(index)
+        status = es.indices.exists(index=index)
         return status
     except exceptions.ConnectionError as e:
         print("Unable to connect to ES. Retrying in 10 secs...")
