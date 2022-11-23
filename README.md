@@ -25,13 +25,12 @@ $ docker-compose up
 
 Push the image to SDN's ECR
 ```
-$ aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/j1m4u0k0
-$ docker build -t sre-training:latest public.ecr.aws/j1m4u0k0/sre-training:latest .
-$ docker tag sre-training:latest public.ecr.aws/j1m4u0k0/sre-training:latest
-$ docker tag sre-training:latest public.ecr.aws/j1m4u0k0/sre-training:*.*.*
-$ docker image push --all-tags public.ecr.aws/j1m4u0k0/sre-training
+$ docker build -t sre-foodtruck:latest .
+$ docker tag sre-foodtruck:latest saimenj/sre-foodtruck:latest
+$ docker tag sre-foodtruck:latest saimenj/sre-foodtruck:*.*.*
+$ docker image push --all-tags saimenj/sre-foodtruck
 ```
 
 If you are on Apple silicon (ARM arch) run
-``$ docker buildx build --platform linux/amd64 -t sre-training --load .`
+``$ docker buildx build --platform linux/amd64 -t sre-foodtruck --load .`
 to build instead.
